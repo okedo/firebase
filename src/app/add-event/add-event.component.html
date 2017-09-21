@@ -1,0 +1,5 @@
+<form [formGroup]="addForm">
+    <input type="text" formControlName="name" placeholder="name of event">
+    <input type="text" formControlName="descr" placeholder="descrition">
+    <button (click)="save(addForm);">Save</button>
+</form>

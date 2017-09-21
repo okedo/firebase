@@ -10,30 +10,4 @@ import * as firebase from 'firebase/app';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  user: Observable<firebase.User>;
-  items: FirebaseListObservable<any[]>;
-  msgVal: string = '';
-
-  constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
-    this.items = af.list('/events', {
-      query: {
-        limitToLast: 50
-      }
-    });
-
-    this.user = this.afAuth.authState;
-  }
-  login() {
-    this.afAuth.auth.signInAnonymously();
-}
-
-logout() {
-    this.afAuth.auth.signOut();
-}
-
-Send(desc: string) {
-    this.items.push({ message: desc});
-    this.msgVal = '';
-}
-
 }
