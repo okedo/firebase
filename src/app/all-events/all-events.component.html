@@ -13,6 +13,6 @@
     <div style="border: solid black 2px" *ngFor="let event of eventService.events | async">
         <p>{{event.eventName}}</p>
         <p>{{event.eventDescr}}</p>
-        <button (click)="delete(event.$key)">delete</button>
+        <button style="background-color:aqua; border:solid black 1px;" (click)="delete(event.$key)">delete</button>
     </div>
 </div>
