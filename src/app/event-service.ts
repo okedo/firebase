@@ -13,7 +13,7 @@ export class EventService {
   events: FirebaseListObservable<any[]>;
   eventsArr: Event[];
   selectedEvent: Event;
-  event1 = new Event;
+  event1 = new Event();
   constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
     this.events = af.list('/events', {
     });
@@ -36,7 +36,6 @@ export class EventService {
   updateEvent(key: string, editForm: FormGroup) {
     this.event1.eventName = editForm.value.name;
     this.event1.eventDescr = editForm.value.descr;
-    console.log();
     this.events.update(key, this.event1);
   }
   

@@ -1,6 +1,8 @@
+<app-add-event></app-add-event>
 <div style="border: solid black 2px" *ngFor="let event1 of events$ | async">
     <p>{{event1.eventName}}</p>
     <p>{{event1.eventDescr}}</p>
     <button style="background-color:aqua; border:solid black 1px;" (click)="delete(event1.$key)">delete</button>
     <button routerLink="edit-event" style="background-color:aqua; border:solid black 1px;" (click)="edit(event1)">update</button>
 </div>
+<a routerLink="/page">link</a>

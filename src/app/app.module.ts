@@ -15,6 +15,7 @@ import {EventService} from './event-service';
 import { EditEventComponent } from './edit-event/edit-event.component';
 import { RoutingModule } from './routing-module';
 import { TestComponent } from './test/test.component';
+import { PageComponent } from './page/page.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA5ZBKNIuJuy8Z3_zqILjayIZl_KAAi4Q8",
@@ -31,7 +32,8 @@ export const firebaseConfig = {
     AllEventsComponent,
     AddEventComponent,
     EditEventComponent,
-    TestComponent
+    TestComponent,
+    PageComponent
   ],
   imports: [
     BrowserModule,
