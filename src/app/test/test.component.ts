@@ -8,13 +8,17 @@ import {Router} from '@angular/router';
 import { Event} from '../event'
 
 @Component({
-  selector: 'app-all-events',
-  templateUrl: './all-events.component.html',
-  styleUrls: ['./all-events.component.css']
+  selector: 'app-test',
+  templateUrl: './test.component.html',
+  styleUrls: ['./test.component.css']
 })
-export class AllEventsComponent implements OnInit {
-  eventsArray : Event[];
-  constructor(private eventService: EventService, private router: Router){
+export class TestComponent implements OnInit {
+  events$: FirebaseListObservable<any[]>;
+  constructor(private eventService: EventService, private af : AngularFireDatabase, private router: Router) { }
+
+  ngOnInit() {
+    this.events$ = this.af.list('/events');
+    console.log(this.events$);
   }
   delete(key: string){
     this.eventService.deleteEvent(key);
@@ -24,9 +28,5 @@ export class AllEventsComponent implements OnInit {
     this.eventService.selectedEvent=event;
     console.log(this.eventService.selectedEvent);
   }
-  ngOnInit() {
-  /*  this.eventsArray = this.eventService.getAll();
-    console.log(this.eventService);*/
-  }
-
 }
+

@@ -20,10 +20,11 @@ createForm(){
     descr: new FormControl('')
   }));
 };
+
 save(addForm: FormGroup){
-  console.log(addForm);
   this.eventService.addEvent(addForm);
 }
+
   ngOnInit() {
   }
 

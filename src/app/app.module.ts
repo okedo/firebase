@@ -12,6 +12,9 @@ import { AllEventsComponent } from './all-events/all-events.component';
 import { AddEventComponent } from './add-event/add-event.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {EventService} from './event-service';
+import { EditEventComponent } from './edit-event/edit-event.component';
+import { RoutingModule } from './routing-module';
+import { TestComponent } from './test/test.component';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyA5ZBKNIuJuy8Z3_zqILjayIZl_KAAi4Q8",
@@ -26,7 +29,9 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     AllEventsComponent,
-    AddEventComponent
+    AddEventComponent,
+    EditEventComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +40,8 @@ export const firebaseConfig = {
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFireDatabaseModule,
     AngularFireAuthModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RoutingModule,
   ],
   providers: [AngularFireAuth, AngularFireDatabase, EventService],
   bootstrap: [AppComponent]

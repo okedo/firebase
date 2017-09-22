@@ -10,27 +10,36 @@ import {FormGroup} from '@angular/forms';
 
 @Injectable()
 export class EventService {
-  user: Observable<firebase.User>;
   events: FirebaseListObservable<any[]>;
+  eventsArr: Event[];
   selectedEvent: Event;
-  event = new Event;
+  event1 = new Event;
   constructor(public afAuth: AngularFireAuth, public af: AngularFireDatabase) {
     this.events = af.list('/events', {
     });
+    this.events.subscribe();
   }
-  selectEvent(event: Event){
-    this.selectedEvent = event;
+  /*getAll(): Event[]{
+    this.events.subscribe(arr=>this.eventsArr=arr)
+    console.log(this.eventsArr);
+    return this.eventsArr;
+  }*/
+  selectEvent(event1: Event){
+    this.selectedEvent = event1;
   }
   addEvent(addForm: FormGroup) {
     console.log(addForm.value);
-    this.event.eventName = addForm.value.name;
-    this.event.eventDescr = addForm.value.descr;
-    this.events.push(this.event);
+    this.event1.eventName = addForm.value.name;
+    this.event1.eventDescr = addForm.value.descr;
+    this.events.push(this.event1);
   }
-  /*updateEvent(key: string, newText: string) {
-    this.events.update(key, { text: newText });
+  updateEvent(key: string, editForm: FormGroup) {
+    this.event1.eventName = editForm.value.name;
+    this.event1.eventDescr = editForm.value.descr;
+    console.log();
+    this.events.update(key, this.event1);
   }
-  */
+  
   deleteEvent(key: string) {    
     this.events.remove(key); 
   }
